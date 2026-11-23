@@ -1,11 +1,11 @@
-class film {
-  constructor(titre, containerId) {
+class Film {
+  constructor(id, containerId) {
     this.container = document.getElementById(containerId);
-    this.titre = titre;
+    this.id = id;
   }
   async affichagePoster() {
     const afficher = await fetch(
-      `https://www.omdbapi.com/?apikey=c80d326a&t=${this.titre}`,
+      `https://www.omdbapi.com/?apikey=c80d326a&i=${this.id}`,
     );
     const affiche = await afficher.json();
     console.log(affiche);
@@ -25,14 +25,27 @@ class film {
     article.appendChild(title);
   }
 }
-let test = [
-  "The Game",
-  "Captain America: The First Avenger",
-  "Mars Attacks!",
-  "Alien: Romulus",
-];
-test.forEach((nomFilm) => allFilm(nomFilm));
-function allFilm(dif) {
-  const toutFilm = new film(dif, "picture");
-  toutFilm.affichagePoster();
+async function randomImdb() {
+  try {
+    const response = await fetch("./titles.json");
+    const data = await response.json();
+    return data[Math.floor(Math.random() * data.length)];
+  } catch (error) {
+    console.error("Erreur lors du chargement du JSON :", error);
+  }
 }
+async function chargementRndm() {
+  const randomId = await randomImdb();
+  const film = new Film(randomId, "picture");
+  film.affichagePoster();
+}
+
+chargementRndm();
+chargementRndm();
+chargementRndm();
+chargementRndm();
+document.getElementById("chargement").addEventListener("click", () => {
+  for (let i = 0; i < 4; i++) {
+    chargementRndm();
+  }
+});
