@@ -18,12 +18,15 @@ class film {
     const article = document.createElement("a");
     const img = document.createElement("img");
     const title = document.createElement("h2");
+    const plot = document.createElement("p");
     article.href = "movie.html";
-    title.textContent = element.Title;
     img.src = element.Poster;
+    title.textContent = element.Title;
+    plot.textContent = element.Plot;
     this.container.appendChild(article);
     article.appendChild(img);
     article.appendChild(title);
+    article.appendChild(plot);
   }
 }
 let test = [
