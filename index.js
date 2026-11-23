@@ -15,14 +15,18 @@ class Film {
   image(element) {
     console.log(element.Title);
     console.log(element.Poster);
-    const article = document.createElement("article");
+    const article = document.createElement("a");
     const img = document.createElement("img");
     const title = document.createElement("h2");
-    title.textContent = element.Title;
+    const plot = document.createElement("p");
+    article.href = "movie.html";
     img.src = element.Poster;
+    title.textContent = element.Title;
+    plot.textContent = element.Plot;
     this.container.appendChild(article);
     article.appendChild(img);
     article.appendChild(title);
+    article.appendChild(plot);
   }
 }
 async function randomImdb() {
