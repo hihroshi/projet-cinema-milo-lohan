@@ -54,3 +54,21 @@ header {
     text-align: center;
   }
 }
+.chargement {
+  background-color: lightgray;
+  font-size: large;
+  border-radius: 25px;
+  width: 50vw;
+  padding: 2vw;
+  border: 0px;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chargement:hover {
+  background-color: gray;
+}
