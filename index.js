@@ -15,9 +15,10 @@ class film {
   image(element) {
     console.log(element.Title);
     console.log(element.Poster);
-    const article = document.createElement("article");
+    const article = document.createElement("a");
     const img = document.createElement("img");
     const title = document.createElement("h2");
+    article.href = "movie.html";
     title.textContent = element.Title;
     img.src = element.Poster;
     this.container.appendChild(article);
