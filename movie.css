@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  background-color: aquamarine;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 10px;
+  h1 {
+    text-align: center;
+    font-size: 8vw;
+  }
+  img {
+    width: 20px;
+    height: 20px;
+  }
+  .header-droite,
+  .header-gauche {
+    display: flex;
+
+    align-items: center;
+  }
+  .header-gauche {
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
+
+  .header-droite {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
