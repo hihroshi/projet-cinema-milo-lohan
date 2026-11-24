@@ -19,7 +19,7 @@ class Film {
     const img = document.createElement("img");
     const title = document.createElement("h2");
     const plot = document.createElement("p");
-    article.href = "movie.html";
+    article.href = `movie.html?id=${this.id}`;
     img.src = element.Poster;
     title.textContent = element.Title;
     plot.textContent = element.Plot;
