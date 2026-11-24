@@ -2,7 +2,6 @@
 //créer une foncton qui recupere l'id
 const identification = new URLSearchParams(window.location.search);
 const imdbID = identification.get("id");
-console.log(imdbID);
 
 class Presentation {
   constructor(container) {
@@ -14,12 +13,10 @@ class Presentation {
       `https://www.omdbapi.com/?apikey=c80d326a&i=${this.id}&plot=full`,
     );
     const affiche = await afficher.json();
-    console.log(affiche);
+
     return this.image(affiche);
   }
   image(element) {
-    console.log(element.Title);
-    console.log(element.Poster);
     const article = document.createElement("article");
     const img = document.createElement("img");
     const title = document.createElement("h2");
