@@ -1,26 +1,83 @@
+:root {
+  --background: #efefef;
+  --color1: #1c3144;
+  --color2: #aec5eb;
+  --contrast: #9197ae;
+  --contrast2: #273043;
+}
+@media screen and (max-width: 768px) {
+  #picture {
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 4vw;
+    row-gap: 6vw;
+    a {
+      width: 80%;
+      height: 95%;
+    }
+    h2 {
+      font-size: 4vw;
+    }
+  }
+  header {
+    h1 {
+      font-size: 8vw;
+    }
+    img {
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+  .chargement {
+    width: 50vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  #picture {
+    grid-template-columns: repeat(4, 1fr);
+    padding-top: 1vw;
+    a {
+      width: 90%;
+      height: 80%;
+    }
+    h2 {
+      font-size: 1.5vw;
+    }
+  }
+  header {
+    h1 {
+      font-size: 5vw;
+    }
+    img {
+      width: 5vw;
+      height: 5vw;
+    }
+  }
+  .chargement {
+    width: 30vw;
+  }
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+body {
+  background-color: var(--background);
 }
 a {
   text-decoration: none;
   color: inherit;
 }
 header {
+  color: white;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  background-color: aquamarine;
+  background-color: var(--color1);
   align-items: center;
   gap: 20px;
   padding: 10px 10px;
   h1 {
     text-align: center;
-    font-size: 8vw;
-  }
-  img {
-    width: 20px;
-    height: 20px;
   }
   .header-droite,
   .header-gauche {
@@ -38,16 +95,19 @@ header {
     gap: 10px;
   }
 }
+
 #picture {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  justify-items: center;
   a {
-    width: 45%;
-    height: 100%;
+    padding: 2vw;
+    border-radius: 1vw;
+    background-color: white;
+    align-self: center;
+
+    text-decoration: none;
     &:hover {
-      box-shadow: 5px 5px 5px black;
+      box-shadow: 5px 5px 5px var(--contrast2);
     }
   }
   img {
@@ -55,7 +115,7 @@ header {
     height: 80%;
   }
   h2 {
-    font-size: 15px;
+    color: black;
     justify-content: center;
     text-align: center;
   }
@@ -64,12 +124,11 @@ header {
   }
 }
 .chargement {
-  background-color: lightgray;
+  background-color: var(--color2);
+  border: 1px solid var(--contrast);
   font-size: large;
   border-radius: 25px;
-  width: 50vw;
   padding: 2vw;
-  border: 0px;
   margin-bottom: 5vh;
   margin-top: 5vh;
 }
@@ -79,5 +138,6 @@ main {
   align-items: center;
 }
 .chargement:hover {
-  background-color: gray;
+  background-color: var(--contrast);
+  transition-duration: 0.2s;
 }
