@@ -1,5 +1,3 @@
-// créer une fonction qui met l'image ect
-//créer une foncton qui recupere l'id
 const identification = new URLSearchParams(window.location.search);
 const imdbID = identification.get("id");
 
@@ -17,23 +15,11 @@ class Presentation {
     return this.image(affiche);
   }
   image(element) {
-    const article = document.createElement("article");
-    const img = document.createElement("img");
-    const title = document.createElement("h2");
-    const plot = document.createElement("p");
-    const actor = document.createElement("p");
-    const genre = document.createElement("p");
-    img.src = element.Poster;
-    title.textContent = element.Title;
-    plot.textContent = element.Plot;
-    actor.textContent = element.Actors;
-    genre.textContent = element.Genre;
-    this.container.appendChild(article);
-    article.appendChild(img);
-    article.appendChild(title);
-    article.appendChild(plot);
-    article.appendChild(actor);
-    article.appendChild(genre);
+    document.getElementById("poster").src = element.Poster;
+    document.getElementById("title").textContent = element.Title;
+    document.getElementById("actors").textContent = element.Actors;
+    document.getElementById("plot").textContent = element.Plot;
+    document.getElementById("genre").textContent = element.Genre;
   }
 }
 
