@@ -35,3 +35,16 @@ header {
     gap: 10px;
   }
 }
+#page-descriptive {
+  display: flex;
+  margin: 10px 10px;
+
+  img {
+    width: 94vw;
+    height: 150vw;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+}
