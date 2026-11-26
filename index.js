@@ -12,21 +12,31 @@ class Film {
     return this.image(affiche);
     /*affiche.Search.forEach((Element) => this.image(Element));*/ //pour les films avec s= donc pour les recherches plus  tard
   }
-  image(element) {
-    console.log(element.Title);
-    console.log(element.Poster);
+  async image(element) {
+    const posters =
+      element.Poster !== "N/A" && (await this.imageExists(element.Poster))
+        ? element.Poster
+        : "./image/placeholder.png";
     const article = document.createElement("a");
     const img = document.createElement("img");
     const title = document.createElement("h2");
     const plot = document.createElement("p");
     article.href = `movie.html?id=${this.id}`;
-    img.src = element.Poster;
+    img.src = posters;
     title.textContent = element.Title;
     plot.textContent = element.Plot;
     this.container.appendChild(article);
     article.appendChild(img);
     article.appendChild(title);
     article.appendChild(plot);
+  }
+  imageExists(url) {
+    return new Promise((resolve) => {
+      var img = new Image();
+      img.addEventListener("load", () => resolve(true));
+      img.addEventListener("error", () => resolve(false));
+      img.src = url;
+    });
   }
 }
 async function randomImdb() {
