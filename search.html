@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>La Salle Obscure</title>
     <link rel="stylesheet" href="search.css" />
     <script src="search.js" defer></script>
   </head>
   <body>
     <header>
       <div class="header-gauche">
-        <img src="image/icone-menu.png" alt="menu" class="icone-menu" />
+        <a href="index.html"
+          ><img src="image/accueil.png" alt="menu" class="icone-menu"
+        /></a>
       </div>
-      <h1>Nom du site</h1>
+      <h1>La Salle Obscure</h1>
       <div class="header-droite">
         <a href="search.html">
           <img
@@ -26,7 +28,13 @@
     <main>
       <div class="searchbar">
         <img src="image/Icônes-recherche.png" alt="" />
-        <input type="text" name="sb" id="sb" class="sb" />
+        <input
+          type="text"
+          name="sb"
+          id="sb"
+          class="sb"
+          placeholder="recherche un film"
+        />
       </div>
       <div id="films"></div>
       <div class="pages">
