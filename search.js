@@ -1,13 +1,14 @@
 class Film {
-  constructor(sb, containerId) {
+  constructor(sb, containerId, page) {
     this.container = document.getElementById(containerId);
     this.sb = sb.value;
     this.title = this.sb.replace(/ /g, "_");
+    this.page = page;
   }
   async affichagePoster() {
     console.log(this.title);
     const afficher = await fetch(
-      `https://www.omdbapi.com/?apikey=c80d326a&s=${this.title}`,
+      `https://www.omdbapi.com/?apikey=c80d326a&s=${this.title}&page=${this.page}`,
     );
     const affiche = await afficher.json();
     console.log(affiche);
@@ -58,9 +59,26 @@ class Film {
     }
   }
 }
-
-document.getElementById("sb").addEventListener("input", () => {
+let page = 1;
+document.getElementById("page").textContent = `page actuelle: ${page}`;
+document.getElementById("plus").addEventListener("click", () => {
+  page += 1;
   let search = document.getElementById("sb");
-  const film = new Film(search, "films");
+  const film = new Film(search, "films", page);
   film.affichagePoster();
+  document.getElementById("page").textContent = `page actuelle: ${page}`;
+});
+document.getElementById("moins").addEventListener("click", () => {
+  page -= 1;
+  let search = document.getElementById("sb");
+  const film = new Film(search, "films", page);
+  film.affichagePoster();
+  document.getElementById("page").textContent = `page actuelle: ${page}`;
+});
+document.getElementById("sb").addEventListener("input", () => {
+  page = 1;
+  let search = document.getElementById("sb");
+  const film = new Film(search, "films", page);
+  film.affichagePoster();
+  document.getElementById("page").textContent = `page actuelle: ${page}`;
 });

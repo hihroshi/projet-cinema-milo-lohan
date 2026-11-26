@@ -155,3 +155,53 @@ header {
     gap: 10px;
   }
 }
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0 4rem;
+
+  button {
+    width: 2.8rem;
+    height: 2.8rem;
+    display: grid;
+    place-items: center;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    background-color: var(--color1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(28, 49, 68, 0.3);
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      transform 0.2s;
+
+    &:hover:not(:disabled) {
+      background-color: var(--accent);
+      color: var(--color1);
+      transform: scale(1.1);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+
+  p {
+    min-width: 6rem;
+    text-align: center;
+    font-weight: 500;
+    color: var(--color1);
+    background-color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(28, 49, 68, 0.12);
+  }
+}
